@@ -34,5 +34,8 @@ BeaconList.plist を編集することで領域監視対象のビーコンを指
 
 デフォルトではiBeaconハッカソン3で使用したビーコン領域が登録してあります。
 
+### 通知の解除方法
+Local Notificationを止めるには画面右上のスイッチをOFFにするか、OSの設定＞通知センターでアプリの通知を停止してください。
+
 ### ソフトウェアライセンスについて
 This software is released under the MIT License, see LICENSE.md.
