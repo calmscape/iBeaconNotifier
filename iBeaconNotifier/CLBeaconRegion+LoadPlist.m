@@ -24,7 +24,7 @@ static NSString* const kMyBeaconRegionIdentifier = @"edu.self.myBeacon";
 		NSDictionary *beaconInfo = obj;
 		NSParameterAssert(beaconInfo[@"proximityUUID"]);
 		NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:beaconInfo[@"proximityUUID"]];
-		NSString *identifier = [NSString stringWithFormat:@"%@.%d", kMyBeaconRegionIdentifier, idx];
+		NSString *identifier = [NSString stringWithFormat:@"%@.%lu", kMyBeaconRegionIdentifier, (unsigned long)idx];
 		
 		CLBeaconRegion *beaconRegion;
 		if (beaconInfo[@"proximityUUID"] && beaconInfo[@"major"] && beaconInfo[@"minor"]) {

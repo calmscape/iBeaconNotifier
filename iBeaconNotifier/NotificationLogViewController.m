@@ -178,7 +178,10 @@ static NSString * const kNotificationFormat = @"%@: %@..., major:%@, minor:%@";
         case NSFetchedResultsChangeDelete:
             [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
-    }
+
+        default:
+            return;
+		}
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
