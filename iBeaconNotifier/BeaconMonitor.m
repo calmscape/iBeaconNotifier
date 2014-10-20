@@ -30,7 +30,9 @@
 {
 	for (id region in beaconRegions) {
 		NSParameterAssert([region isKindOfClass:[CLBeaconRegion class]]);
-		[self.locationManager startMonitoringForRegion:region];
+		if ([CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]]) {
+			[self.locationManager startMonitoringForRegion:region];
+		}
 	}
 }
 
