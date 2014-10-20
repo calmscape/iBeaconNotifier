@@ -22,7 +22,15 @@
 	UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
 	NotificationLogViewController *controller = (NotificationLogViewController *)navigationController.topViewController;
 	controller.managedObjectContext = self.managedObjectContext;
-    return YES;
+
+	if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+		UIUserNotificationType notificationTypes = UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
+		UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:notificationTypes
+																																												 categories:nil];
+		[[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+	}
+	
+	return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

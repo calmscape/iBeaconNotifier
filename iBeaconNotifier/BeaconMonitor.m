@@ -28,6 +28,10 @@
 #pragma mark - public instance methods
 - (void)startMonitoringWithBeaconRegions:(NSSet *)beaconRegions;
 {
+	if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+		[self.locationManager requestAlwaysAuthorization];
+	}
+	
 	for (id region in beaconRegions) {
 		NSParameterAssert([region isKindOfClass:[CLBeaconRegion class]]);
 		if ([CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]]) {
